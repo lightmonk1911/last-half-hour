@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Task } from './task.model';
-import { Store, Action } from '@ngrx/store';
-import { MarkAsRemoved, TaskActionTypes } from './task.actions';
+import { Store } from '@ngrx/store';
+import { TaskActionTypes, UpdateTask } from './task.actions';
 
 @Component({
   selector: 'app-task',
@@ -10,24 +10,44 @@ import { MarkAsRemoved, TaskActionTypes } from './task.actions';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
+  removedClass = 'task--removed';
+  doneClass = 'task--done';
+  classesObj: any;
 
   constructor(private store: Store<{}>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.classesObj = {
+      [this.removedClass]: this.task.removed,
+      [this.doneClass]: this.task.done
+    };
+  }
 
-  markAsRemoved() {
-    const action: MarkAsRemoved = {
-      type: TaskActionTypes.MarkAsRemoved,
-      payload: { ...this.task, removed: true }
+  updateTask(task: Task) {
+    const action: UpdateTask = {
+      type: TaskActionTypes.UpdateTask,
+      payload: task
     };
     this.store.dispatch(action);
   }
 
+  markAsRemoved() {
+    const newTask = { ...this.task, removed: true };
+    this.updateTask(newTask);
+  }
+
   markAsDone() {
-    const action: MarkAsRemoved = {
-      type: TaskActionTypes.MarkAsRemoved,
-      payload: { ...this.task, done: true }
-    };
-    this.store.dispatch(action);
+    const newTask = { ...this.task, done: true };
+    this.updateTask(newTask);
+  }
+
+  undone() {
+    const newTask = { ...this.task, done: false };
+    this.updateTask(newTask);
+  }
+
+  recover() {
+    const newTask = { ...this.task, removed: false };
+    this.updateTask(newTask);
   }
 }

@@ -12,12 +12,7 @@ export function taskReducer(state = [], action: ActionsUnion): Array<Task> {
     case NewTaskFormActionTypes.CreateTask: {
       return [...state, action.payload];
     }
-    case TaskActionTypes.MarkAsRemoved: {
-      const newState = state.filter(({ id }) => action.payload.id !== id).concat(action.payload);
-      return newState;
-    }
-
-    case TaskActionTypes.MarkAsDone: {
+    case TaskActionTypes.UpdateTask: {
       const newState = state.filter(({ id }) => action.payload.id !== id).concat(action.payload);
       return newState;
     }

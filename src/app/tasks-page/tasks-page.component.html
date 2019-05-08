@@ -2,7 +2,7 @@
 <div class="tasks-page">
   <ol class="tasks-page__tasks-list">
     <li *ngFor="let task of tasks$ | async">
-      <app-task *ngIf="!task.removed" [task]="task"></app-task>
+      <app-task  [task]="task"></app-task>
     </li>
   </ol>
 </div>

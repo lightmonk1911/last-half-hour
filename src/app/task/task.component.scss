@@ -1,0 +1,8 @@
+.task {
+  &--done {
+    background-color: lightgreen;
+  }
+  &--removed {
+    border: 1px solid red;
+  }
+}

@@ -2,20 +2,13 @@ import { Action } from '@ngrx/store';
 import { Task } from '../task/task.model';
 
 export enum TaskActionTypes {
-  MarkAsRemoved = '[Task] MarkAsRemoved',
-  MarkAsDone = '[Task] MarkAsDone'
+  UpdateTask = '[Task] Update Task'
 }
 
-export class MarkAsRemoved implements Action {
-  readonly type = TaskActionTypes.MarkAsRemoved;
+export class UpdateTask implements Action {
+  readonly type = TaskActionTypes.UpdateTask;
 
   constructor(public payload: Task) {}
 }
 
-export class MarkAsDone implements Action {
-  readonly type = TaskActionTypes.MarkAsDone;
-
-  constructor(public payload: Task) {}
-}
-
-export type TaskActionsUnion = MarkAsRemoved | MarkAsDone;
+export type TaskActionsUnion = UpdateTask;

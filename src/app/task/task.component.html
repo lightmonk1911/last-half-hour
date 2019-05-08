@@ -1,5 +1,7 @@
 <div class="task">
-  <div class="task__name">{{ task.name }}</div>
-  <button type="button" (click)="markAsRemoved()" class="task__remove-btn">X</button>
-  <button type="button" (click)="markAsDone()" class="task__done-btn">V</button>
+  <div class="task__name" [ngClass]="classesObj">{{ task.name }}</div>
+  <button type="button" *ngIf="!task.done" (click)="markAsDone()" class="task__done-btn">Done</button>
+  <button type="button" *ngIf="task.done" (click)="undone()" class="task__done-btn">Undone</button>
+  <button type="button" *ngIf="!task.removed" (click)="markAsRemoved()" class="task__remove-btn">Remove</button>
+  <button type="button" *ngIf="task.removed" (click)="recover()" class="task__done-btn">Recover</button>
 </div>
