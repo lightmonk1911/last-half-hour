@@ -17,6 +17,7 @@ import { TasksPageComponent } from './tasks-page/tasks-page.component';
 import { TaskComponent } from './task/task.component';
 import { ActivityComponent } from './activity/activity.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FilterPanelComponent } from './filter-panel/filter-panel.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewActivityFormComponent,
     TasksPageComponent,
     TaskComponent,
-    ActivityComponent
+    ActivityComponent,
+    FilterPanelComponent
   ],
   imports: [
     BrowserModule,

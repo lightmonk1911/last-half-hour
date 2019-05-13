@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Task } from '../task/task.model';
-import { Store } from '@ngrx/store';
+import { TasksFilterService } from '../tasks-filter/tasks-filter.service';
 
 @Component({
   selector: 'app-tasks-page',
@@ -11,10 +11,9 @@ import { Store } from '@ngrx/store';
 export class TasksPageComponent implements OnInit {
   tasks$: Observable<Array<Task>>;
 
-  constructor(private store: Store<{ tasks: Array<Task> }>) {}
-
-  ngOnInit() {
-    this.tasks$ = this.store.select('tasks');
-    this.tasks$.subscribe((tasks) => console.log('tasks', tasks));
+  constructor(private tasksFilter: TasksFilterService) {
+    this.tasks$ = this.tasksFilter.filteredTasks$;
   }
+
+  ngOnInit() {}
 }

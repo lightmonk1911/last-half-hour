@@ -11,15 +11,19 @@ import { Activity } from '../activity/activity.model';
 import { taskReducer } from './tasksReducer';
 import { activityReducer } from './activities';
 import { localStorageSync } from 'ngrx-store-localstorage';
+import { tasksFiltersReducer } from './tasksFilterReducer';
+import { ITasksFilter, FilterName } from '../tasks-filter/tasks-filter.filters';
 
 export interface State {
   tasks: Array<Task>;
   activities: Array<Activity>;
+  tasksFilters: Array<FilterName>;
 }
 
 export const reducers: ActionReducerMap<State> = {
   tasks: taskReducer,
-  activities: activityReducer
+  activities: activityReducer,
+  tasksFilters: tasksFiltersReducer
 };
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {

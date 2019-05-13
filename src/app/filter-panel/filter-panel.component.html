@@ -1,0 +1,6 @@
+<form action="" class="filter-panel">
+  <div class="filter-panel__switch" *ngFor="let filter of preparedFilters">
+    <label for="hide-removed-checkbox">{{ filter.nameOnPage }}</label>
+    <input (change)="changeFilter(filter.name, $event.target.checked)" type="checkbox"/>
+  </div>
+</form>
