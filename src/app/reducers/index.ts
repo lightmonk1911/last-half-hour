@@ -9,10 +9,10 @@ import { environment } from '../../environments/environment';
 import { Task } from '../task/task.model';
 import { Activity } from '../activity/activity.model';
 import { taskReducer } from './tasksReducer';
-import { activityReducer } from './activities';
+import { activityReducer } from './activitiesReducer';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { tasksFiltersReducer } from './tasksFilterReducer';
-import { ITasksFilter, FilterName } from '../tasks-filter/tasks-filter.filters';
+import { FilterName } from '../filter-tasks-pipe/filter-tasks-pipe.filters';
 
 export interface State {
   tasks: Array<Task>;

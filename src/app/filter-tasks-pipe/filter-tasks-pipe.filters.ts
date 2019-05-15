@@ -11,4 +11,4 @@ export interface ITasksFilter {
   nameOnPage: string;
 }
 
-export type FilterName = 'notRemoved' | 'notDone';
+export type FilterName = string;

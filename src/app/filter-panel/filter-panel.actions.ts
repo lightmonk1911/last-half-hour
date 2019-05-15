@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { FilterName } from '../tasks-filter/tasks-filter.filters';
+import { FilterName } from '../filter-tasks-pipe/filter-tasks-pipe.filters';
 
 export enum ActionTypes {
   EnableFilter = '[Filter Panel] Enable Filter',

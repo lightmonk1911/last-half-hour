@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TasksFilterService } from './tasks-filter.service';
+import { ActivitiesService } from './activities.service';
 
-describe('TasksFilterService', () => {
+describe('ActivitiesService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TasksFilterService = TestBed.get(TasksFilterService);
+    const service: ActivitiesService = TestBed.get(ActivitiesService);
     expect(service).toBeTruthy();
   });
 });

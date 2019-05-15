@@ -1,7 +1,8 @@
 <div class="task">
-  <div class="task__name" [ngClass]="classesObj">{{ task.name }}</div>
-  <button type="button" *ngIf="!task.done" (click)="markAsDone()" class="task__done-btn">Done</button>
-  <button type="button" *ngIf="task.done" (click)="undone()" class="task__done-btn">Undone</button>
-  <button type="button" *ngIf="!task.removed" (click)="markAsRemoved()" class="task__remove-btn">Remove</button>
-  <button type="button" *ngIf="task.removed" (click)="recover()" class="task__done-btn">Recover</button>
+  <div class="task__name">{{ task.name }}</div>
+  <button type="button" *ngIf="!task.done" (click)="markAsDone()" class="btn btn-primary m-1 task__done-btn">Done</button>
+  <button type="button" *ngIf="task.done" (click)="undone()" class="btn btn-primary m-1 task__done-btn">Undone</button>
+  <button type="button" *ngIf="!task.removed" (click)="markAsRemoved()" class="btn btn-primary m-1 task__remove-btn">Remove</button>
+  <button type="button" *ngIf="task.removed" (click)="recover()" class="btn btn-primary m-1 task__done-btn">Recover</button>
+  <button type="button" *ngIf="!task.removed && !task.done && !isCurrent" (click)="start()" class="btn btn-primary m-1 task__done-btn">Start</button>
 </div>

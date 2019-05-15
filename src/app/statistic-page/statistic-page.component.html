@@ -1,3 +1,5 @@
-<p>
-  statistic-page works!
-</p>
+<ul class="statistic-page__ul list-group m-2">
+  <li class="statistic-page__li list-group-item" *ngFor="let item of statisticItems$ | async">
+    {{ item.task.name }}: {{ item.spent$ | async | msToTime }}
+  </li>
+</ul>

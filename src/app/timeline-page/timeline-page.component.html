@@ -1,3 +1,8 @@
-<p>
-  timeline-page works!
-</p>
+<app-new-activity-form></app-new-activity-form>
+<ul class="timeline-page__activities list-group ">
+  <li *ngFor="let activity of preparedActivties" class="list-group-item">
+    {{ activity.start | date: 'dd.MM.yyyy HH:mm:ss' }}: {{ activity.task.name }}
+    {{ activity.duration | async | msToTime }}
+  </li>
+</ul>
+

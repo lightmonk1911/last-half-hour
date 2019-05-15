@@ -1,3 +1,10 @@
-<p>
-  new-activity-form works!
-</p>
+<form class="new-activity-form form-inline" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="form-group new-activity-form__form-group m-2">
+    <select ngModel name="task" class="custom-select" id="select-task">
+      <option *ngFor="let task of tasks | filterTasksPipe: filters; let i = index" [value]="task.id"
+        >{{ task.name }}
+      </option>
+    </select>
+    <button class="new-activity-form__submit-btn btn btn-primary m-1" type="submit">Start</button>
+  </div>
+</form>

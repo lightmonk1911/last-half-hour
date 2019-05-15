@@ -18,6 +18,8 @@ import { TaskComponent } from './task/task.component';
 import { ActivityComponent } from './activity/activity.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPanelComponent } from './filter-panel/filter-panel.component';
+import { FilterTasksPipePipe } from './filter-tasks-pipe/filter-tasks-pipe.pipe';
+import { MsToTimePipe } from './ms-to-time/ms-to-time.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FilterPanelComponent } from './filter-panel/filter-panel.component';
     TasksPageComponent,
     TaskComponent,
     ActivityComponent,
-    FilterPanelComponent
+    FilterPanelComponent,
+    FilterTasksPipePipe,
+    MsToTimePipe,
   ],
   imports: [
     BrowserModule,

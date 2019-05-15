@@ -1,9 +1,13 @@
 <app-new-task-form></app-new-task-form>
 <app-filter-panel></app-filter-panel>
-<div class="tasks-page">
-  <ol class="tasks-page__tasks-list">
-    <li *ngFor="let task of tasks$ | async">
-      <app-task  [task]="task"></app-task>
+<div class="tasks-page m-2">
+  <ul class="tasks-page__tasks-list list-group">
+    <li
+      [ngClass]="{ 'list-group-item-success': task.done, 'list-group-item-light': task.removed }"
+      class="list-group-item"
+      *ngFor="let task of tasks$ | async | filterTasksPipe: (filters$ | async)"
+    >
+      <app-task [task]="task" [isCurrent]="(currentTaskId$ | async) === task.id"></app-task>
     </li>
-  </ol>
+  </ul>
 </div>
